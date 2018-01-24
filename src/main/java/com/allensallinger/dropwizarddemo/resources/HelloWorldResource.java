@@ -86,4 +86,28 @@ public class HelloWorldResource {
     }
 
     // Delete
+    @DELETE
+    @Timed
+    public Saying deleteSaying(@QueryParam("id") Optional<Long> id) {
+        System.out.println(sayingMap);
+        String contentMessage = "value was not deleted";
+
+        if (id.isPresent()) {
+            Long unwrappedId = id.orElse((long) -1);
+
+            if (sayingMap.remove(unwrappedId) != null) {
+
+                contentMessage = "Delete successful";
+            } else if (sayingMap.remove(unwrappedId) == null) {
+                contentMessage = "Value has already been deleted";
+            } else {
+                contentMessage = "Value was not deleted";
+            }
+        }
+
+        System.out.println(sayingMap);
+
+        Saying s = new Saying((long) 200, contentMessage);
+        return s;
+    }
 }
