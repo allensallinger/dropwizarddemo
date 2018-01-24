@@ -1,5 +1,6 @@
 package com.allensallinger.dropwizarddemo;
 
+import com.allensallinger.dropwizarddemo.api.Saying;
 import com.allensallinger.dropwizarddemo.resources.HelloWorldResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -19,7 +20,7 @@ public class HelloWorldApplication  extends Application<HelloWorldConfiguration>
 
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
-
+        bootstrap.addBundle(hibernate);
     }
 
     @Override
@@ -31,5 +32,12 @@ public class HelloWorldApplication  extends Application<HelloWorldConfiguration>
         );
         environment.jersey().register(resource);
     }
+
+    private final Hibernate<HelloWorldConfiguration> hibernate = new HibernateBundle<HelloWorldConfiguration>(Saying.class) {
+        @Override
+        public DataSourceFactory getDataSourceFactory(HelloWorldConfiguration configuration) {
+            return configuration.getDataSourceFactory();
+        }
+    };
 
 }

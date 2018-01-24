@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.dropwizard:dropwizard-hibernate:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-hibernate/unknown/dropwizard-hibernate-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-hibernate/unknown/dropwizard-hibernate-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-hibernate/unknown/dropwizard-hibernate-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
